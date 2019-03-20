@@ -3,7 +3,7 @@
      which is available here: http://xml.resource.org. -->
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!-- One method to get references from the online citation libraries.
-     There has to be one entity for each item to be referenced. 
+     There has to be one entity for each item to be referenced.
      An alternate method (rfc include) is described in the references. --><!ENTITY RFC2104 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2104.xml">
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC2898 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2898.xml">
@@ -16,7 +16,7 @@
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
-<!-- For a complete list and description of processing instructions (PIs), 
+<!-- For a complete list and description of processing instructions (PIs),
      please see http://xml.resource.org/authoring/README.html. -->
 <!-- Below are generally applicable Processing Instructions (PIs) that most I-Ds might want to use.
      (Here they are set differently than their defaults in xml2rfc v1.32) -->
@@ -32,7 +32,7 @@
 <!-- use symbolic references tags, i.e, [RFC2119] instead of [1] -->
 <?rfc sortrefs="yes" ?>
 <!-- sort the reference entries alphabetically -->
-<!-- control vertical white space 
+<!-- control vertical white space
      (using these PIs as follows is recommended by the RFC Editor) -->
 <?rfc compact="yes" ?>
 <!-- do not start each main section on a new page -->
@@ -42,11 +42,11 @@
 <rfc category="info" docName="draft-sqrl-working">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
-     you can add the attributes updates="NNNN" and obsoletes="NNNN" 
+     you can add the attributes updates="NNNN" and obsoletes="NNNN"
      they will automatically be output with "(if approved)" -->
   <!-- ***** FRONT MATTER ***** -->
   <front>
-    <!-- The abbreviated title is used in the page header - it is only necessary if the 
+    <!-- The abbreviated title is used in the page header - it is only necessary if the
          full title is longer than 39 characters -->
     <title abbrev="SQRL">Secure Quick Reliable Login (SQRL), an Authentication and Identity Management Framework</title>
     <!-- add 'role="editor"' below for the editors if appropriate -->
@@ -78,17 +78,17 @@
       </address>
     </author>
     <date month="February" year="2018"/>
-    <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
-         in the current day for you. If only the current year is specified, xml2rfc will fill 
-     in the current day and month for you. If the year is not the current one, it is 
-     necessary to specify at least a month (xml2rfc assumes day="1" if not specified for the 
-     purpose of calculating the expiry date).  With drafts it is normally sufficient to 
+    <!-- If the month and year are both specified and are the current ones, xml2rfc will fill
+         in the current day for you. If only the current year is specified, xml2rfc will fill
+     in the current day and month for you. If the year is not the current one, it is
+     necessary to specify at least a month (xml2rfc assumes day="1" if not specified for the
+     purpose of calculating the expiry date).  With drafts it is normally sufficient to
      specify just the year. -->
     <!-- Meta-data Declarations -->
     <area>General</area>
     <workgroup>Internet Engineering Task Force</workgroup>
     <!-- WG name at the upperleft corner of the doc,
-         IETF is fine for individual submissions.  
+         IETF is fine for individual submissions.
      If this element is not present, the default is "Network Working Group",
          which is used by the RFC Editor as a nod to the history of the IETF. -->
     <keyword>sqrl</keyword>
@@ -111,49 +111,49 @@
         <t>
           <list style="hanging" hangIndent="3">
             <t hangText="Secure"><vspace/>
-              Through a series of cryptographic signatures, the user can prove 
-              their identity without disclosing any information that would allow 
+              Through a series of cryptographic signatures, the user can prove
+              their identity without disclosing any information that would allow
               that identity to be compromised or their account hacked. SQRL also provides strong anti-phishing features.
             </t>
             <t hangText="Identity Management"><vspace/>
               SQRL separates and delineates the concepts of account and identity. SQRL provides a full identity lifecycle management framework which allows the user to maintain complete control of their identity, while leaving servers with complete control over account issues.  Even in the event of a compromise, the user retains the ability to retake control of their identity and lock the attacker out.  Automated rekeying means that the user can maintain a single SQRL identity indefinitely, even after a compromise.
             </t>
             <t hangText="Global Password"><vspace/>
-              The user only has to remember a single password, which is used to 
-              locally decrypt their identity during SQRL authentication.  Since 
-              the user no longer has to remember a unique password for each site, 
-              this one global password can be very strong.  This strong password 
-              combined with strong encryption makes it infeasible for even a 
+              The user only has to remember a single password, which is used to
+              locally decrypt their identity during SQRL authentication.  Since
+              the user no longer has to remember a unique password for each site,
+              this one global password can be very strong.  This strong password
+              combined with strong encryption makes it infeasible for even a
               state level actor to compromise the user's identity. (SQRL apps can alternately use other methods of protection such as biometrics when available on the host device.)
             </t>
             <t hangText="Pseudononymous"><vspace/>
-              SQRL authentication is pseudonymous, in that it only provides a 
-              secure, site-specific token to the server.  This token cannot be 
-              directly linked to a user's account at any other server, and 
+              SQRL authentication is pseudonymous, in that it only provides a
+              secure, site-specific token to the server.  This token cannot be
+              directly linked to a user's account at any other server, and
               provides no personally identifiable information.
             </t>
             <t hangText="No Shared Secrets"><vspace/>
               Passwords, time-based authenticators, and other authentication methods work through shared secrets. These secrets can conceivably be stolen by hackers or rogue employees and used to impersonate the user. SQRL does not operate through shared secrets, and even if the server's account database is stolen the attacker is not given any means to impersonate the user.
             </t>
             <t hangText="No Third Party"><vspace/>
-              The user's identity cannot be compromised by a security breach at 
-              a third party authentication provider, protecting it from both 
+              The user's identity cannot be compromised by a security breach at
+              a third party authentication provider, protecting it from both
               hackers and overreaching authorities.
             </t>
             <t hangText="No Per-Site Settings"><vspace/>
               Unlike password managers, SQRL does not require any information about specific websites to be saved, preventing potential privacy issues stemming from information leaks as well as keeping its database size small.
             </t>
             <t hangText="Offline Identity Backup"><vspace/>
-              Since SQRL identities are intended to last a lifetime, and there 
-              is no third party that can help the user recover their identity if 
-              they forget their password, SQRL includes an offline backup 
-              mechanism.  The user can print out or write down their encrypted 
-              identity, along with a secure Rescue Code, that will allow the user 
+              Since SQRL identities are intended to last a lifetime, and there
+              is no third party that can help the user recover their identity if
+              they forget their password, SQRL includes an offline backup
+              mechanism.  The user can print out or write down their encrypted
+              identity, along with a secure Rescue Code, that will allow the user
               to recover from a forgotten password.
             </t>
             <t hangText="Out Of Band Authentication Option"><vspace/>
-              With SQRL, the user can safely authenticate a session on public or 
-              potentially compromised systems by scanning a QR code 
+              With SQRL, the user can safely authenticate a session on public or
+              potentially compromised systems by scanning a QR code
               on a trusted mobile device containing their SQRL identity, without the need to expose that identity to the public system.
             </t>
           </list>
@@ -169,9 +169,9 @@
           <list style="hanging" hangIndent="3">
             <t hangText="Account"><vspace/>  Information on a user's services and permissions on a particular web site for purposes of facilitating access</t>
             <t hangText="Authentication"><vspace/>The process of verifying an identity and attaching it to an account</t>
-            <t hangText="Backup"><vspace/>To externally save a user's Rescue Code-protected IUK via file, QR code, or text without saving the IMK</t>
+            <t hangText="Backup"><vspace/>To externally save a user's password-protected IUK via file, QR code, or text without saving the IMK</t>
             <t hangText="Client"><vspace/>The user component of SQRL</t>
-            <t hangText="Export"><vspace/>To externally save a user's Rescue Code-protected IUK and password-protected IMK via file or QR code</t>
+            <t hangText="Export"><vspace/>To externally save a user's password-protected IUK and password-protected IMK via file or QR code</t>
             <t hangText="Identity"><vspace/>A means of pseudonymously recognizing a user</t>
             <t hangText="Identity Lock"><vspace/>A method of locking a user's identity on various websites (generally out of fear the user's IMK may be compromised) for later unlocking with Rescue Code or rekeyed identity</t>
             <t anchor="IDK" hangText="IDK"><vspace/>IDentity Key: a secure, irreversible, and collision-resistant public key used to identify the user in a specific realm; unique to both the realm and the user's IMK</t>
@@ -199,29 +199,29 @@
       <section title="Standard Algorithms">
         <t>The following standard algorithms are used in this document:
           <list style="symbols"><t><xref target="NIST.800-38D">AES-GCM</xref></t><t>
-              base64url: URL safe base64 encoding, as defined in Section 4 of 
+              base64url: URL safe base64 encoding, as defined in Section 4 of
               <xref target="RFC3548"/>, without padding.
             </t><t><xref target="RFC8031">Curve25519</xref></t><t><xref target="RFC8032">Ed25519</xref></t><t><xref target="RFC2104">HMAC</xref></t><t><xref target="RFC4868">HMAC-SHA256</xref></t><t><xref target="RFC2898">PBKDF2</xref></t><t><xref target="RFC7914">scrypt</xref></t><t><xref target="FIPS.180-4.2015">SHA-256</xref></t><t>
-              urlencode: Percent-Encoding as defined in Section 2.1 of 
+              urlencode: Percent-Encoding as defined in Section 2.1 of
               <xref target="RFC3986"/>.
             </t></list>
         </t>
       </section>
       <section anchor="algo-b56c" title="base56check">
         <t>
-          base56check encoding allows the backup of SQRL identities to a 
+          base56check encoding allows the backup of SQRL identities to a
           textual form.  It:
           <list style="symbols"><t>Accepts an arbitrarily sized payload.</t><t>
-              Uses a set of 56 alphanumeric symbols chosen to be easily 
+              Uses a set of 56 alphanumeric symbols chosen to be easily
               distinguishable in any font.
             </t><t>
-              Ignores invalid characters and white space to allow readable 
+              Ignores invalid characters and white space to allow readable
               formatting.
             </t><t>
-              Designed to be printed 20 characters per line, in 5 space 
+              Designed to be printed 20 characters per line, in 5 space
               separated groups of 4 characters for readability.
             </t><t>
-              Includes a check character at the end of each line to catch 
+              Includes a check character at the end of each line to catch
               errors while the user is typing with 98.2% accuracy.
             </t></list>
           The chosen alphabet is:
@@ -233,37 +233,37 @@
         </figure>
         <section title="Encoding">
           <t>
-            To encode a series of bytes to base56check, treat the source bytes 
-            as a single, large, little-endian number and convert using the 
+            To encode a series of bytes to base56check, treat the source bytes
+            as a single, large, little-endian number and convert using the
             normal mathematical steps:
             <list style="format %d." counter="b56-encode-counter"><t>Calculate BASE_LENGTH:  ceil( SOURCE_LENGTH * 8.0 / log2(56))</t><t>Divide SOURCE by 56 to yield SOURCE and REMAINDER.</t><t>
-                Append the character in ALPHABET at position REMAINDER to the 
+                Append the character in ALPHABET at position REMAINDER to the
                 BASE string.
               </t><t>Repeat from step 1, until SOURCE is zero.</t><t>Append '2' (character in ALPHABET at position 0) to BASE until BASE is BASE_LENGTH bytes long.</t></list>
-            Now, with our converted BASE string, we can calculate the check 
+            Now, with our converted BASE string, we can calculate the check
             digits and produce the final output.
             <list style="format %d." counter="b56-encode-counter"><t>
-                Split BASE into 19 character CHUNKS (the final chunk may be 
+                Split BASE into 19 character CHUNKS (the final chunk may be
                 smaller).
               </t><t>
                 For each CHUNK:
                 <list style="letters"><t>Append a single byte zero-based CHUNK-NUMBER to the CHUNK.</t><t>Perform a SHA-256 hash on the CHUNK, yielding HASH.</t><t>
-                    Treating HASH as a single little-endian number, divide 
+                    Treating HASH as a single little-endian number, divide
                     HASH by 56 to obtain REMAINDER.
                   </t><t>
-                    Replace the last character in CHUNK with the character in 
+                    Replace the last character in CHUNK with the character in
                     ALPHABET at position REMAINDER.
                   </t><t>Append the CHUNK to OUTPUT.</t></list>
               </t></list>
-            OUTPUT can then be formatted as desired.  The RECOMMENDED 
-            formatting is 20 characters per line in space-separated groups of 
-            4 characters each.  This format is easy for humans to read and type, 
+            OUTPUT can then be formatted as desired.  The RECOMMENDED
+            formatting is 20 characters per line in space-separated groups of
+            4 characters each.  This format is easy for humans to read and type,
             and allows error checking for each line of input.
           </t>
         </section>
         <section title="Validation">
           <t>
-            base56check is designed to provide periodic error checking and 
+            base56check is designed to provide periodic error checking and
             feedback to the user as they are typing.  To perform this validation:
             <list style="numbers"><t>Remove any characters from INPUT that are invalid (not included in ALPHABET).</t><t>Split INPUT into 20 character CHUNKS (the final chunk may be smaller).</t><t>For each CHUNK:
                 <list style="letters"><t>Store the last character from CHUNK as CHECK.</t><t>Replace the last character in CHUNK with a single byte zero-based CHUNK-NUMBER.</t><t>Perform a SHA-256 hash on the CHUNK, yielding HASH.</t><t>Treating HASH as a single little-endian number, divide HASH by 56 to obtain REMAINDER.</t><t>Compare CHECK with the character from ALPHABET at position REMAINDER.</t><t>If comparison passes (is equal), continue.  Otherwise, there is an error in this CHUNK.</t></list>
@@ -274,11 +274,11 @@
           <t>
             Decoding base56check is similarly straight-forward:
             <list style="numbers"><t>
-                Start with an empty BASE string and an zero OUTPUT buffer, to be 
+                Start with an empty BASE string and an zero OUTPUT buffer, to be
                 treated as a single, large, little-endian number.
               </t><t>
-                Perform the base56check validation as described above, appending 
-                all but the last character of each validated CHUNK to the 
+                Perform the base56check validation as described above, appending
+                all but the last character of each validated CHUNK to the
                 BASE string.
               </t><t>If any chunk fails validation, abort.</t><t>For each CHARACTER in BASE, from right to left:
                 <list style="letters"><t>Multiply OUTPUT by 56.</t><t>Lookup the INDEX of CHARACTER in ALPHABET.</t><t>Add INDEX to OUTPUT.</t></list>
@@ -289,9 +289,9 @@
       <section anchor="algo-enhash" title="EnHash">
         <figure>
           <preamble>
-            EnHash is an iterated hash used to derive a 256 bit key from 
-            another 256 bit key.  It is performed by chaining 16 iterations 
-            of SHA-256, with each iteration's output XORed to produce the 
+            EnHash is an iterated hash used to derive a 256 bit key from
+            another 256 bit key.  It is performed by chaining 16 iterations
+            of SHA-256, with each iteration's output XORed to produce the
             final output as follows:
           </preamble>
           <artwork><![CDATA[
@@ -313,7 +313,7 @@ function EnHash ( input := 32 byte key )
       </section>
       <section anchor="algo-enscrypt" title="EnScrypt">
         <t>
-          EnScrypt is an implementation of PBKDF2 using scrypt as a PRF.  It hardens scrypt by allowing for extended 
+          EnScrypt is an implementation of PBKDF2 using scrypt as a PRF.  It hardens scrypt by allowing for extended
           processing time while keeping memory requirements low but still effective.</t>
         <t>The following parameters are used for the scrypt           function:
         </t>
@@ -339,7 +339,7 @@ N = (1 << n);
           Enscrypt is performed by calling scrypt via multiple rounds of PBKDF2.
         </t>
         <t>
-          EnScrypt can operate in two different modes, the only difference 
+          EnScrypt can operate in two different modes, the only difference
           being when the calculation is stopped.
           <list style="hanging" hangIndent="3"><t hangText="Counter Mode:"><vspace/>
               Stops after a predefined number of iterations.
@@ -356,27 +356,27 @@ N = (1 << n);
       </t>
       <section anchor="secret-class-a" title="Class A Secrets">
         <t>
-          Class A secrets are absolutely critical to protecting a user's 
-          identity.  A compromised Class A secret may result in the user's 
-          complete loss of control of the identity, with no recourse available.  
-          Due to their highly sensitive nature, the following precautions are 
+          Class A secrets are absolutely critical to protecting a user's
+          identity.  A compromised Class A secret may result in the user's
+          complete loss of control of the identity, with no recourse available.
+          Due to their highly sensitive nature, the following precautions are
           REQUIRED when dealing with Class A secrets:
           <list style="symbols"><t>
-              The secret MUST be generated using the highest quality entropy 
-              source available to the client.  See <xref target="app-entropy"/> 
+              The secret MUST be generated using the highest quality entropy
+              source available to the client.  See <xref target="app-entropy"/>
               for recommendations.
             </t><t>
-              The client MUST prevent the secret from being written to 
-              non-volatile memory in plaintext form, including being swapped to 
+              The client MUST prevent the secret from being written to
+              non-volatile memory in plaintext form, including being swapped to
               disk, by any means possible.
             </t><t>
-              The plaintext secret MUST be securely wiped from RAM as soon as 
+              The plaintext secret MUST be securely wiped from RAM as soon as
               it is no longer needed.
             </t><t>
-              If the secret is to be stored, it MUST be stored in an offline 
+              If the secret is to be stored, it MUST be stored in an offline
               format (printed), OR encrypted using a Class A key.
             </t><t>
-              The secret SHOULD NOT be transmitted over the network in any form, 
+              The secret SHOULD NOT be transmitted over the network in any form,
               and MUST NOT be transmitted unencrypted.
             </t></list>
         </t>
@@ -386,10 +386,10 @@ N = (1 << n);
 IUK = RandomBytes( 32 );]]></artwork>
           </figure>
           <t>
-            The IUK is a Class A 256 bit high entropy random number that 
-            represents a user's identity.  All other identifying keys are 
-            derived from this one.  After identity creation, this key is only 
-            used in emergency situations, such as rekeying an identity in the 
+            The IUK is a Class A 256 bit high entropy random number that
+            represents a user's identity.  All other identifying keys are
+            derived from this one.  After identity creation, this key is only
+            used in emergency situations, such as rekeying an identity in the
             event of a possible compromise.
           </t>
         </section>
@@ -399,26 +399,26 @@ IUK = RandomBytes( 32 );]]></artwork>
 URSK = curve25519_key_agreement( SUK, curve25519_private_key( IUK ));]]></artwork>
           </figure>
           <t>
-            Used by the client to update the identity association on a server, 
+            Used by the client to update the identity association on a server,
             the URSK is derived from the SUK and IUK.
           </t>
         </section>
         <section title="Rescue Code (RC)">
           <t>
-            The Rescue Code is a Class A, computer generated, high entropy 
+            The Rescue Code is a Class A, computer generated, high entropy
             passcode consisting of 24 numeric digits.  The client SHOULD
-            encourage the user to store the Rescue Code in an offline format 
+            encourage the user to store the Rescue Code in an offline format
             (printed or written).
           </t>
         </section>
         <section title="Password Derived Keys">
           <t>
-            Several keys are generated from user input.  Both the user supplied 
-            passwords and the derived keys are to be treated as Class A secrets.  
-            Since these are expected to be low entropy, they must be processed 
-            through EnScrypt (<xref target="algo-enscrypt"/>).  When generating 
-            derived keys, EnScrypt MUST be used in timer mode with a minimum 
-            duration of 1 second.  The table below lists RECOMMENDED durations 
+            Several keys are generated from user input.  Both the user supplied
+            passwords and the derived keys are to be treated as Class A secrets.
+            Since these are expected to be low entropy, they must be processed
+            through EnScrypt (<xref target="algo-enscrypt"/>).  When generating
+            derived keys, EnScrypt MUST be used in timer mode with a minimum
+            duration of 1 second.  The table below lists RECOMMENDED durations
             for EnScrypt key generation:
           </t>
           <texttable anchor="table_pw_derived_keys" title="Password Derived Keys and Recommended EnScrypt Times">
@@ -436,44 +436,44 @@ URSK = curve25519_key_agreement( SUK, curve25519_private_key( IUK ));]]></artwor
             <c>60 seconds</c>
           </texttable>
           <t>
-            Clients MAY allow the user to specify the EnScrypt time for the PWDK, 
-            as long as that timer is at least 1 second.  The RCDK is used so 
-            rarely, and is so important to protect, that 60 seconds should not 
-            cause an undue burden on the user.  
+            Clients MAY allow the user to specify the EnScrypt time for the PWDK,
+            as long as that timer is at least 1 second.  The RCDK is used so
+            rarely, and is so important to protect, that 60 seconds should not
+            cause an undue burden on the user.
           </t>
           <t>
-            When re-generating derived keys, EnScrypt is used in counter mode 
+            When re-generating derived keys, EnScrypt is used in counter mode
             with the iteration count from the original generation operation.
           </t>
         </section>
       </section>
       <section anchor="secret-class-b" title="Class B Secrets">
         <t>
-          Class B secrets are used often, and have less strict security 
-          requirements.  A compromised Class B secret may result in an attacker 
+          Class B secrets are used often, and have less strict security
+          requirements.  A compromised Class B secret may result in an attacker
           temporarily gaining the ability to impersonate the user to any server,
-          but the user can regain control of their identity by rekeying followed 
-          by authenticating with each affected server.  The following precautions 
+          but the user can regain control of their identity by rekeying followed
+          by authenticating with each affected server.  The following precautions
           are REQUIRED when dealing with Class B secrets:
           <list style="symbols"><t>
-              The client MUST prevent the secret from being written to non-volatile 
-              memory in plaintext form, including being swapped to disk, by any 
+              The client MUST prevent the secret from being written to non-volatile
+              memory in plaintext form, including being swapped to disk, by any
               means possible.
             </t><t>
-              The plaintext secret MUST be securely wiped from RAM as soon as it 
+              The plaintext secret MUST be securely wiped from RAM as soon as it
               is no longer needed.
             </t><t>
-              If the secret is to be stored, it MUST be stored in an encrypted 
+              If the secret is to be stored, it MUST be stored in an encrypted
               form.
             </t><t>
-              The secret SHOULD NOT be transmitted over the network in any form, 
+              The secret SHOULD NOT be transmitted over the network in any form,
               and MUST NOT be transmitted unencrypted.
             </t></list>
         </t>
         <section title="Previous Identity Unlock Key (PIUK)">
           <t>
-            A PIUK is an IUK that is no longer in active use.  It has been 
-            replaced by a newly generated IUK, and requires less strict 
+            A PIUK is an IUK that is no longer in active use.  It has been
+            replaced by a newly generated IUK, and requires less strict
             protection.
           </t>
         </section>
@@ -483,9 +483,9 @@ URSK = curve25519_key_agreement( SUK, curve25519_private_key( IUK ));]]></artwor
 IMK = EnHash( IUK );]]></artwork>
           </figure>
           <t>
-            This Class B key acts as a proxy for the IUK during normal SQRL 
-            operation.  It is used to generate the unique keys that each site 
-            associates with the user.  The IMK is derived from the IUK using 
+            This Class B key acts as a proxy for the IUK during normal SQRL
+            operation.  It is used to generate the unique keys that each site
+            associates with the user.  The IMK is derived from the IUK using
             the EnHash (<xref target="algo-enhash"/>) function.
           </t>
         </section>
@@ -504,7 +504,7 @@ ILK = curve25519_public_key( curve25519_private_key( IUK ));]]></artwork>
 SSSK = HMAC-SHA256( IMK, Realm );]]></artwork>
           </figure>
           <t>
-            The Site Specific Secret Key is generated from the IMK and the 
+            The Site Specific Secret Key is generated from the IMK and the
             Realm (<xref target="section-realm"/>).
           </t>
         </section>
@@ -514,7 +514,7 @@ SSSK = HMAC-SHA256( IMK, Realm );]]></artwork>
 RLK = curve25519_private_key( RandomBytes( 32 ));]]></artwork>
           </figure>
           <t>
-            The RLK is generated randomly when the client associates with a 
+            The RLK is generated randomly when the client associates with a
             new server.
           </t>
         </section>
@@ -529,7 +529,7 @@ RLK = curve25519_private_key( RandomBytes( 32 ));]]></artwork>
 SSPK = ed25519_public_key( SSSK );]]></artwork>
           </figure>
           <t>
-            The Site Specific Public Key (SSPK) is the public counterpart to 
+            The Site Specific Public Key (SSPK) is the public counterpart to
             the SSSK.  It serves as the user's pseudonymous identity on the site.
           </t>
         </section>
@@ -539,7 +539,7 @@ SSPK = ed25519_public_key( SSSK );]]></artwork>
 SUK = curve25519_public_key( RLK );]]></artwork>
           </figure>
           <t>
-            Created during identity association, the SUK is the public 
+            Created during identity association, the SUK is the public
             counterpart of the RLK.
           </t>
         </section>
@@ -549,8 +549,8 @@ SUK = curve25519_public_key( RLK );]]></artwork>
 VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
           </figure>
           <t>
-            Generated during identity association, and stored only on the 
-            server, the VUK is the public key used to verify the client's 
+            Generated during identity association, and stored only on the
+            server, the VUK is the public key used to verify the client's
             URSK.
           </t>
         </section>
@@ -576,7 +576,7 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
               RECOMMENDED default is 5 seconds.  The REQUIRED minimum is 1 second.
             </t><t hangText="Idle Timeout:"><vspace/>
               If the client implements ShortPass or holds the user's password or keys
-              in memory in any form, and the 0x0080 option flag is set, it MUST 
+              in memory in any form, and the 0x0080 option flag is set, it MUST
               securely erase that memory after this many minutes of system idle time.
               Valid values are 1-65535.
             </t><t hangText="Option Flags:"><vspace/>
@@ -608,11 +608,11 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
       </section>
       <section anchor="identity-storage" title="Identity Storage">
         <t>
-          Because SQRL identities are intended to last the user's lifetime, 
+          Because SQRL identities are intended to last the user's lifetime,
           the user needs to be able to move his identity between clients.
           Every SQRL client MUST be able to read and write identities in this
           standard format.  The format described here is RECOMMENDED for both
-          non-volatile and in-memory storage.  
+          non-volatile and in-memory storage.
         </t>
         <t>
           Because identities should be backed up offline (to printed paper),
@@ -632,7 +632,7 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
         <section title="Storage Blocks">
           <t>
             A stored SQRL identity is composed of any number of blocks.  Each block
-            begins with a four byte header identifying the total length of the block 
+            begins with a four byte header identifying the total length of the block
             and the type of data stored in the block.
           </t>
           <texttable anchor="table-block-format" title="Storage Block Format">
@@ -656,10 +656,10 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
         <section title="Predefined Block Types">
           <section anchor="type-1-block" title="Block Type 1: Working Identity">
             <t>
-              The type 1 block contains the user's encrypted IMK and ILK, as well as 
-              user defined options.  The user options are in plain text, but MUST be 
+              The type 1 block contains the user's encrypted IMK and ILK, as well as
+              user defined options.  The user options are in plain text, but MUST be
               regarded as untrusted until authenticated through AES-GCM.  Type 1
-              blocks are encrypted with AES-GCM using the PWDK.  The type 1 block is 
+              blocks are encrypted with AES-GCM using the PWDK.  The type 1 block is
               formatted as follows:
             </t>
             <texttable title="Type 1 Block">
@@ -711,9 +711,9 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
             </texttable>
             <t>
               Constructing a type 1 block is relatively straight-forward:
-              <list style="numbers"><t>Allocate a 125 byte buffer.</t><t>Populate the default values (or user chosen options).</t><t>Generate a random 12 byte initialization vector (IV) and store it in the buffer.</t><t>Generate a random 16 byte salt and store it in the buffer.</t><t>Use the generated salt, the user's password, and the user's chosen EnScrypt Seconds value to generate the PWDK and Iteration Count.</t><t>Populate the Iteration Count in the buffer.</t><t>AES-GCM encrypt the IMK and ILK (64 bytes total) using the first "AAD Length" bytes of the buffer as AAD, the IV, 
+              <list style="numbers"><t>Allocate a 125 byte buffer.</t><t>Populate the default values (or user chosen options).</t><t>Generate a random 12 byte initialization vector (IV) and store it in the buffer.</t><t>Generate a random 16 byte salt and store it in the buffer.</t><t>Use the generated salt, the user's password, and the user's chosen EnScrypt Seconds value to generate the PWDK and Iteration Count.</t><t>Populate the Iteration Count in the buffer.</t><t>AES-GCM encrypt the IMK and ILK (64 bytes total) using the first "AAD Length" bytes of the buffer as AAD, the IV,
               the PWDK.</t><t>Populate the ciphertext result and verification tag from AES-GCM.</t><t>Securely wipe the plaintext keys, encryption key, and password from memory if they are no longer needed.</t></list>
-              If the client is updating a type 1 block, and the user's password hasn't changed, 
+              If the client is updating a type 1 block, and the user's password hasn't changed,
               clients SHOULD use the original salt and iteration count to re-encrypt the block.
             </t>
           </section>
@@ -759,9 +759,9 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
           </section>
           <section anchor="type-3-block" title="Block Type 3: Previous Identities">
             <t>
-      The type 3 block contains from one to four of the most recent PIUKs, IUKs which have been replaced by rekeying.  
-      It also includes the total number of times the identity has been rekeyed, the "Edition".  If the identity has 
-      never been rekeyed, this block will be absent.  Encrypted using the IMK as the AES-GCM encryption key, the 
+      The type 3 block contains from one to four of the most recent PIUKs, IUKs which have been replaced by rekeying.
+      It also includes the total number of times the identity has been rekeyed, the "Edition".  If the identity has
+      never been rekeyed, this block will be absent.  Encrypted using the IMK as the AES-GCM encryption key, the
       content of this block is accessible to the client if either the user's password or the Rescue Code is known.
     </t>
             <texttable title="Type 3 Block">
@@ -794,8 +794,8 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
         <section title="Encoding">
           <t>
       Identities may be stored to file or optical (QR) code in binary
-      format, or in base64url or base56check (<xref target="algo-b56c"/>) 
-      encoded text.  Compatible clients MUST support at least one of 
+      format, or in base64url or base56check (<xref target="algo-b56c"/>)
+      encoded text.  Compatible clients MUST support at least one of
       these standard encodings.
     </t>
           <t>
@@ -821,19 +821,19 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
       <section title="Identity Operations">
         <t>
       Identity creation, recovery, and rekeying are particularly vulnerable times for the SQRL identity, during which
-      several Class A secrets may be exposed.  Special care is required to protect this sensitive key during these operations.  
+      several Class A secrets may be exposed.  Special care is required to protect this sensitive key during these operations.
       Clients SHOULD inform the user of the security implications and encourage the user not to perform these operations
       on a device that the user believes to be compromised.
     </t>
         <section anchor="identity-creation" title="Identity Creation">
           <t>
-        The SQRL identity is, in essence, just a long random number (the IUK).  In order to protect the new identity, 
-        both during creation and against future exploits, the client MUST use the highest quality entropy available to 
+        The SQRL identity is, in essence, just a long random number (the IUK).  In order to protect the new identity,
+        both during creation and against future exploits, the client MUST use the highest quality entropy available to
         it while creating a new identity.  See <xref target="app-entropy"/> for recommendations on harvesting entropy.
       </t>
           <t>
         Creating an identity involves generating a random IUK and Rescue Code, deriving the IMK and ILK, and encrypting these
-        keys.  In addition, the client MUST allow and encourage the user to store both the new identity and the Rescue Code in 
+        keys.  In addition, the client MUST allow and encourage the user to store both the new identity and the Rescue Code in
         an offline format.  The following process is RECOMMENDED:
         <list style="numbers"><t>Begin harvesting entropy if the client does not do this continuously.</t><t>Prompt the user to name their new identity so that they can recognize it later.</t><t>
             Generate a random Rescue Code, and have the user store the Rescue Code offline.  Written or printed form is RECOMMENDED.
@@ -850,13 +850,13 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
         </section>
         <section anchor="identity-import-export" title="Importing / Exporting an Identity">
           <t>
-          For compatibility, clients MUST support importing and exporting identities in at least one of these standard formats.  
+          For compatibility, clients MUST support importing and exporting identities in at least one of these standard formats.
           It is RECOMMENDED that clients support all of them.  Clients MAY offer additional formats as well.
           <list style="hanging" hangIndent="3"><t hangText="Binary File"><vspace/>
               An identity in the <xref target="identity-storage">standard format</xref>, saved as a binary file with the "sqrldata"
               header.  The RECOMMENDED file extension is ".sqrl".
             </t><t hangText="QR Code"><vspace/><list style="symbols"><t>TODO: Reference QR Code specification?</t><t>TODO: Recommend Mode, Encoding, Error Correction, etc.</t></list></t><t hangText="Text"><vspace/>
-              An identity in the <xref target="identity-storage">standard format</xref>, encoded with 
+              An identity in the <xref target="identity-storage">standard format</xref>, encoded with
               <xref target="algo-b56c">base56check</xref>, intended to be printed to paper for offline
               storage and manually entered by the user during import.
             </t></list>
@@ -871,10 +871,10 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
         </section>
         <section anchor="identity-recovery" title="Identity Recovery">
           <t>
-        If the user has forgotten their password, or lost their identity file, identity recovery is required to reconstruct 
+        If the user has forgotten their password, or lost their identity file, identity recovery is required to reconstruct
         a usable identity.  Depending on the situation, the client may be recovering from an existing identity file, or from
         an offline backup.  In either case, the procedure is the same:
-        <list style="numbers"><t>Because the user's options are lost in this process, the client SHOULD give the user an opportunity to review the default options and make changes.</t><t>Prompt the user to enter their Rescue Code and new password.</t><t>Validate the Rescue Code by decrypting the Type 2 block and obtain the IUK.</t><t>Derive the IMK and ILK, and construct a new Type 1 block protected by the user's newly chosen password.</t><t>Securely wipe any memory containing unencrypted keys or passwords.</t><t>Save the recovered identity.</t></list>
+        <list style="numbers"><t>Because the user's options are lost in this process, the client SHOULD give the user an opportunity to review the default options and make changes.</t><t>Prompt the user to enter their Rescue Code and new password, which can be their old one.</t><t>Validate the Rescue Code by decrypting the Type 2 block and obtain the IUK.</t><t>Derive the IMK and ILK, and construct a new Type 1 block protected by the user's newly chosen password.</t><t>Securely wipe any memory containing unencrypted keys or passwords.</t><t>Save the recovered identity.</t></list>
       </t>
         </section>
         <section anchor="identity-rekey" title="Rekeying an Identity">
@@ -935,7 +935,7 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
           <t>There MUST NOT be any space between either the name or value and the equal sign.</t>
           <t><list style="hanging">
             <t hangText="ver"><vspace/>The server MUST declare the set of supported protocol versions, and this declaration MUST be first in the client's argument list. See <xref target="protocol-version" />.</t>
-            <t hangText="nut"><vspace/>Base64url-encoded opaque token that is a never-repeating cryptographically-strong nonce. The nut MAY contain reversibly encrypted data to help the server associate and maintain state. It MUST be included with every response to prevent reuse/replay and hijacking attacks. As with all of SQRL's base64 values, any trailing equals signs must be stripped. [add xref here once section on nut is complete]</t>
+            <t hangText="nut"><vspace/>Base64url-encoded opaque token that is a never-repeating cryptographically-strong nonce. The nut MAY contain reversibly encrypted data to help the server associate and maintain state. It MUST be included with every response to prevent reuse/replay and hijacking attacks. As with all of SQRL's base64 values, any trailing equals signs must be stripped. [TODO add xref here once section on nut is complete]</t>
             <t anchor="tif" hangText="tif"><vspace/>Transaction Information Flags. A single hexadecimal-encoded integer that MUST be included in every server response. The "0x" prefix is included here for clarity, but they are not needed or used in the TIF's value.</t>
 		  </list></t>
 		  <texttable align="center" style="all" title="Transaction Information Flags (TIFs)">
@@ -947,7 +947,7 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
 		    <c>0x08</c><c>SQRL Disabled. Indicates that the SQRL authentication for this identity has previously been disabled. While this bit is set, any attempt at authentication MUST fail. This bit can ONLY be reset, and the identity re-enabled, by the "enable=" parameter from the client signed by the URS for the identity known to the server.</c>
 		    <c>0x10</c><c>Function(s) Not Supported. The client requested one or more SQRL functions that the server does not currently support. The server MUST also fail the query by setting 0x40 Command Failed.</c>
 		    <c>0x20</c><c>Transient Error. Indicates that the client signature(s) are correct, but something about the query prevented the command from completing. MUST be accompanied by a fresh "nut=" and a new "qry=" parameter. The server is requesting that the client retry and reissue the command with the new nut and query values. The server MUST also fail the query by setting 0x40 Command Failed.</c>
-		    <c>0x40</c><c>Command Failed. Indicates that the server has had a problem processing the client's query. No change is made to the user's account or login status. With SQRL, either everything succeeds, or nothing happens. When set without 0x80 Client Failure, the trouble was not with the client's data, protocol, etc. but with some other aspect of the request failing. The server MAY use the "ask=" parameter to explain the problem to the client's user. When this flag is activated, the client MUST consider all other TIFs other than 0x80 to be invalid.</c>
+		    <c>0x40</c><c>Command Failed. Indicates that the server has had a problem processing the client's query. No change is made to the user's account or login status. With SQRL, either everything succeeds, or nothing happens. When set without 0x80 Client Failure, the trouble was not with the client's data, protocol, etc. but with some other aspect of the request failing. The server MAY use the "ask=" parameter to explain the problem to the client's user. When this flag is activated, the client MUST consider all TIFs other than 0x80 to be invalid.</c>
 		    <c>0x80</c><c>Client Failure. Some aspect of the client's submitted query (other than expired but otherwise valid state information) was incorrect and prevented the server from understanding and/or completing the requested action. Moreover, this is not an issue the server expects could be fixed by having the client reissue the command with a fresh nut. The server MUST also set 0x40 Command Failed.</c>
 		    <c>0x100</c><c>Bad ID Association. The server may request reverification of the user's SQRL identity after a successful authentication. If it then receives a SQRL query using that nut but with a different SQRL identity, the server MUST reply with 0x100 Bad ID Association along with 0x40 Command Failed and 0x80 Client Failure.</c>
 		  </texttable>
@@ -955,7 +955,7 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
 		  <t>SQRL clients MUST immediately terminate any connection and abort any authentication operation with any SQRL server that includes TIF bits not defined.</t>
 		  <t><list style="hanging">
             <t hangText="qry"><vspace/>The query path. Instructs the client to query the provided server object in its next query (if any). MUST be included in every reply. MUST contain the full path from the root ("/"), and MUST NOT contain the scheme, domain name, or port.</t>
-            <t hangText="url"><vspace/>Redirection URL. MUST be provided in response to any command other than "query" when the SQRL client's query includes the "opt=cps" parameter. The server MUST NOT authenticate the current web browser sessio, but instead uset his parameter to provide the client with a URL taking the user to a page showing the result of the authentication.</t>
+            <t hangText="url"><vspace/>Redirection URL. MUST be provided in response to any command other than "query" when the SQRL client's query includes the "opt=cps" parameter. The server MUST NOT authenticate the current web browser session, but instead use his parameter to provide the client with a URL taking the user to a page showing the result of the authentication.</t>
             <t hangText="sin"><vspace/>The Secret INdex. The server MAY include this parameter to request an identity-based, high-entropy, 256-bit indexed secret from the client. The client will hash this value via a secondary identity-keyed HMAC256. Servers MAY request any number of indexed secret values. SHOULD contain a cryptographically-secure degree of entropy.</t>
             <t hangText="suk"><vspace/>Server Unlock Key. When the server receives a successful authentication on a PIDK, or when the existing SQRL account is disabled, the server MUST provide the SUK to the client so that the client may either re-enable the user's account, update the user's identity, or remove the user's account entirely.</t>
             <t hangText="ask"><vspace/>A simple but flexible means for a remote server to gain a response from the SQRL client's user. The value MUST contain the base64url-encoded text to display to the user, and MAY contain one or two button parameters separated by tildes. If no buttons are specified, a simple "OK" button will be displayed to the user. A button parameter consists of base64url-encoded text to display in the button, and MAY be followed by a semicolon delimiting a URL. If the user selects a button where a URL is provided, the SQRL client will submit the link to its host operating system for handling. All text MUST be UTF-8 encoded to support international characters.</t>
@@ -1077,7 +1077,7 @@ VUK = ed25519_public_key( curve25519_key_agreement( ILK, RLK ));]]></artwork>
       </section>
       <section title="Evil Router">
         <t>In this context, the router in consideration is the one connecting the user's LAN segment to the rest of the Internet. Home routers have been shown to be lacking in security, and even a well-supported router must be updated when new firmware versions are released, something most users aren't aware of.</t>
-        <t>It is also increasingly the case that users connect to Wi-Fi hotspots when travelling, relying on routers whose security they could not evaluate even if they knew to. Moreover, an attacker on the LAN segment could engage in ARP spoofing to make the attacker's own device the default gateway for the segment, forwarding the packets on to the true router but establishing himself as a Man-In-The-Middle.</t>
+        <t>It is also increasingly the case that users connect to Wi-Fi hotspots when travelling, relying on routers whose security they could not evaluate even if they knew how to. Moreover, an attacker on the LAN segment could engage in ARP spoofing to make the attacker's own device the default gateway for the segment, forwarding the packets on to the true router but establishing himself as a Man-In-The-Middle.</t>
         <t>Once an attacker gains control of the default gateway, he could engage in phishing and DNS spoofing attacks as described above. More significantly, he could insert himself into the TLS handshake and commit any number of attacks designed to compromise the security of TLS.</t>
         <t>SQRL provides no means of defending the user against such an attack, however, at most the attacker will gain access to the specific login sessions the user makes while at that location.</t>
       </section>
