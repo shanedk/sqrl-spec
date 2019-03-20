@@ -299,15 +299,15 @@ Internet-Draft                    SQRL                     February 2018
       account
 
    Backup
-      To externally save a user's Rescue Code-protected IUK via file, QR
+      To externally save a user's password-protected IUK via file, QR
       code, or text without saving the IMK
 
    Client
       The user component of SQRL
 
    Export
-      To externally save a user's Rescue Code-protected IUK and
-      password-protected IMK via file or QR code
+      To externally save a user's password-protected IUK and password-
+      protected IMK via file or QR code
 
    Identity
       A means of pseudonymously recognizing a user
@@ -1294,7 +1294,8 @@ Internet-Draft                    SQRL                     February 2018
        SHOULD give the user an opportunity to review the default options
        and make changes.
 
-   2.  Prompt the user to enter their Rescue Code and new password.
+   2.  Prompt the user to enter their Rescue Code and new password,
+       which can be their old one.
 
    3.  Validate the Rescue Code by decrypting the Type 2 block and
        obtain the IUK.
@@ -1337,7 +1338,6 @@ Internet-Draft                    SQRL                     February 2018
        B.  If a Type 3 block does not already exist, a new one is
            created.  Fill the "Edition" field with the number 1.  The
            encrypted section will contain only the new PIUK.
-
 
 
 
@@ -1445,7 +1445,7 @@ Internet-Draft                    SQRL                     February 2018
       encrypted data to help the server associate and maintain state.
       It MUST be included with every response to prevent reuse/replay
       and hijacking attacks.  As with all of SQRL's base64 values, any
-      trailing equals signs must be stripped. [add xref here once
+      trailing equals signs must be stripped.  [TODO add xref here once
       section on nut is complete]
 
    tif
@@ -1516,7 +1516,7 @@ Internet-Draft                    SQRL                     February 2018
 
    |       | parameter to explain the problem to the client's user.    |
    |       | When this flag is activated, the client MUST consider all |
-   |       | other TIFs other than 0x80 to be invalid.                 |
+   |       | TIFs other than 0x80 to be invalid.                       |
    +-------+-----------------------------------------------------------+
    |  0x80 | Client Failure. Some aspect of the client's submitted     |
    |       | query (other than expired but otherwise valid state       |
@@ -1557,7 +1557,7 @@ Internet-Draft                    SQRL                     February 2018
       Redirection URL.  MUST be provided in response to any command
       other than "query" when the SQRL client's query includes the
       "opt=cps" parameter.  The server MUST NOT authenticate the current
-      web browser sessio, but instead uset his parameter to provide the
+      web browser session, but instead use his parameter to provide the
       client with a URL taking the user to a page showing the result of
       the authentication.
 
@@ -2020,7 +2020,7 @@ Internet-Draft                    SQRL                     February 2018
 
    It is also increasingly the case that users connect to Wi-Fi hotspots
    when travelling, relying on routers whose security they could not
-   evaluate even if they knew to.  Moreover, an attacker on the LAN
+   evaluate even if they knew how to.  Moreover, an attacker on the LAN
    segment could engage in ARP spoofing to make the attacker's own
    device the default gateway for the segment, forwarding the packets on
    to the true router but establishing himself as a Man-In-The-Middle.
